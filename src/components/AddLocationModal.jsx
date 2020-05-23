@@ -2,13 +2,14 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { Map, Marker} from "google-maps-react";
+import {Map, Marker} from "google-maps-react";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import "../css/AddLocationModal.css";
 import ImageUploader from "./ImageUploader";
 import axios from "axios";
-import img from '../images/pin.png'
+import img from '../images/pin.png';
+import Alert from 'react-bootstrap/Alert'
 
 const icon = {url: img, scaledSize: {width: 60, height: 60}};
 const BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
@@ -107,7 +108,14 @@ class AddLocationModal extends Component {
                 lat: 37.750615,
                 lng: -121.43841
             },
-            formInvalid: false
+            //placeholder coordinates
+            newPosition: {
+                lat: 37.750615,
+                lng: -121.43841
+            },
+            formInvalid: false,
+            name: "",
+            description: ""
         };
     }
 
@@ -150,7 +158,7 @@ class AddLocationModal extends Component {
 
     cancelModal = () => {
         this.clearImage();
-        this.setState({inputFormVisible: false, name: '', description: ''});
+        this.setState({inputFormVisible: false, name: '', description: '', formInvalid: false});
         this.props.hideAddLocationModal();
     };
 
@@ -158,7 +166,6 @@ class AddLocationModal extends Component {
     newLocationMarkerDragEnd = (props, marker) => {
         const lat = marker.position.lat();
         const lng = marker.position.lng();
-
 
 
         this.setState({
@@ -201,18 +208,18 @@ class AddLocationModal extends Component {
 
     submitNewLocationForm = () => {
 
-        // FORM VALIDATON
-        //
-        // if (this.state.name || this.state.description === null || "") {
-        //     this.setState({
-        //         formInvalid: true
-        //     })
-        // } else {
-        //
-        //     this.setState({
-        //             formInvalid: false
-        //         }
-        //     )
+
+        if (this.state.name || this.state.description === "") {
+            this.setState({
+                formInvalid: true
+            })
+        } else {
+
+            this.setState({
+                    formInvalid: false
+                }
+            )
+
 
             {
                 this.state.image === null ? (
@@ -220,7 +227,8 @@ class AddLocationModal extends Component {
                     ) :
                     (this.submitFormWithImage())
             }
-        // }
+        }
+
 
     };
 
@@ -243,10 +251,14 @@ class AddLocationModal extends Component {
             .then(res => {
                 this.cancelModal();
                 this.props.refreshLocations();
-
+                this.setState({
+                    name: "",
+                    description: ""
+                })
             })
             .catch(err => console.log(err))
     };
+
 
     submitFormWithoutImage = () => {
 
@@ -260,7 +272,10 @@ class AddLocationModal extends Component {
             .then(res => {
                 this.cancelModal();
                 this.props.refreshLocations();
-
+                this.setState({
+                    name: "",
+                    description: ""
+                })
 
             })
             .catch(function (error) {
@@ -334,6 +349,12 @@ class AddLocationModal extends Component {
 
                             </Form>
 
+
+                            <Alert show={this.state.formInvalid} variant="danger formAlert">
+                                <p> Please enter both a location name and description</p>
+
+
+                            </Alert>
 
                         </Modal.Body>
                         < Modal.Footer>
