@@ -1,0 +1,53 @@
+.mapContainer {
+  position: absolute;
+
+  width: 100%;
+
+  height: 45vh;
+}
+
+.addLocationMapContainer {
+  height: 52vh;
+}
+
+.cancelAddLocationButton {
+  width: 43%;
+  margin: 10px;
+}
+
+.submitAddLocationButton {
+  width: 43%;
+  margin: 10px;
+}
+
+.addLocationModalButtons {
+  margin: auto;
+}
+
+.uploadImage {
+  height: 150px;
+  padding: 10px;
+}
+
+.uploadImageForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #bdbdbd;
+}
+
+.uploadImageFile {
+}
+
+.uploadImageBtn {
+}
+
+.modal-footer {
+  display: block !important;
+}
+
+
+.addLocationModal {
+  margin-top:-5vh;
+}

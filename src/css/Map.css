@@ -1,0 +1,49 @@
+.mapContainer {
+}
+
+.yee {
+    height: 92.5vh;
+    border: none !important;
+    margin-top: 7.5vh !important;
+}
+
+.moreInfoButton {
+    font-size: 10px;
+}
+
+
+.markerInfo {
+    display: inline-flex;
+    padding: 5px;
+}
+
+.markerInfo i {
+    font-size: 1.2rem;
+
+
+}
+
+.infoWindowContents {
+    display: inline-flex;
+
+    padding-left: 1rem;
+
+    padding-right: 1rem;
+
+    padding-top: 3%;
+      padding-bottom: 3%;
+}
+
+.image {
+}
+
+
+.locationModalImage {
+
+
+    margin: auto !important;
+}
+
+.modal-body{
+    text-align: center;
+}

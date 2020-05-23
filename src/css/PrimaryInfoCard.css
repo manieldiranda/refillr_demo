@@ -1,0 +1,119 @@
+.markerSelected {
+    margin-top: -6rem !important;
+    transition-duration: .2s;
+    opacity: 1 !important;
+}
+
+.markerNotSelected {
+    margin-top: 0px !important;
+    transition-duration: .2s;
+    opacity: 0% !important;
+
+    height: 0px;
+}
+
+
+
+.modalImageContainer {
+    text-align: center ;
+}
+.locationInfo {
+    width: 90%;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-flex;
+}
+
+.addressText {
+    font-size: .7rem;
+}
+
+.locationInfoButton {
+    text-align: center;
+    vertical-align: center
+}
+
+.locationNameText {
+    font-size: 1.5em;
+    margin-bottom: 2px;
+}
+.locationDescriptionText {
+    font-size: 1.5em;
+    margin-bottom: 2px;
+}
+
+.primaryInfoCardHeader {
+    display: inline-flex;
+    height:6rem;
+}
+
+
+.modalInfoButton {
+    height: 45px;
+    width: 45px;
+    margin-top: 12px;
+
+}
+
+.cardDetailsHidden {
+    opacity: 0%;
+}
+
+.cardDetailsExpanded {
+    opacity: 1 !important;
+}
+
+.detailsExpanded {
+    margin-top: -38rem !important;
+    transition-duration: .2s;
+}
+
+.detailsNotExpanded {
+
+}
+
+.cardContainer {
+    position: fixed;
+}
+
+.primaryInfoCard {
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.cardDetailBody {
+
+}
+
+
+.footerButton {
+    margin:5px;
+}
+
+.locationModalImage {
+    height:14rem !important;
+}
+
+.cardDetailBody{
+    height:27rem !important;
+}
+.cardFooter{
+    height:5rem;
+}
+
+
+@media (max-width: 450px){
+    .markerSelected {
+    margin-top: -13rem !important;
+    transition-duration: .2s;
+    opacity: 1 !important;
+}
+
+    .detailsExpanded {
+    margin-top: -38rem !important;
+    transition-duration: .2s;
+}
+
+}

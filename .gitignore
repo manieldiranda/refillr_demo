@@ -1,0 +1,35 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+
+/refillr_frontend/node_modules/
+/refillr_frontend/.pnp
+/refillr_frontend.pnp.js
+/refillr_frontend/.env.development
+# testing
+refillr_frontend/coverage
+refillr_frontend/.idea
+
+# production
+refillr_frontend/build
+
+# misc
+refillr_frontend/.DS_Store
+refillr_frontend/.env.local
+refillr_frontend/.env.development.local
+refillr_frontend/.env.test.local
+refillr_frontend/.env.production.local
+
+refillr_frontend/npm-debug.log*
+refillr_frontend/yarn-debug.log*
+refillr_frontend/yarn-error.log*
+
+
+refillr_backend/.idea
+refillr_backend/venv
+refillr_backend/db.sqlite3
+
+
+/node_modules/
+*.sqlite3
+/venv/

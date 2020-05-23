@@ -1,0 +1,31 @@
+.location {
+    border-radius: 0% !important;
+    text-align: center;
+}
+
+.locationTitle {
+    margin-top: 14px;
+    font-weight: bold;
+
+}
+
+.locationAddress {
+    margin-top: -10px;
+    font-size: 14px;
+}
+
+.locationHolder {
+    max-height: 50vh;
+    margin-bottom: 10px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.loadingScreenContainer {
+    margin-top:70px;
+    height:90vh;
+}
+
+.spinner-grow{
+    margin:auto;
+}

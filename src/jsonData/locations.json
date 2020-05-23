@@ -1,0 +1,25 @@
+{
+  "markers": [
+    {
+      "name": "My House",
+      "latitude": 37.750581,
+      "longitude": -121.438362,
+      "image": "http://localhost:3000/images/house.jpg",
+      "description": "The water fountain is in the house, inside the refridgerator."
+    },
+    {
+      "name": "Wing Stop",
+      "latitude": 37.737495,
+      "longitude": -121.452631,
+      "image": "http://localhost:3000/images/wingstop.jpg",
+      "description": "The water fountain is inside the restaurant, at the soda machine."
+    },
+    {
+      "name": "Safe Way",
+      "latitude": 37.740312,
+      "longitude": -121.449688,
+      "image": "http://localhost:3000/images/safeway.jpg",
+       "description": "By the deli, in the fancy coke machine."
+    }
+  ]
+}
