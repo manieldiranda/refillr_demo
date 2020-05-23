@@ -22,7 +22,6 @@ database schemas, and run the Django development server.
 Change directories into the backend at `refillr_backend/`
 
 ```
-cd refillr_backend/
 pip install -r requirements.txt
 ```
 
