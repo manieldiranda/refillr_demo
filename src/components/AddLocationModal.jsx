@@ -209,7 +209,7 @@ class AddLocationModal extends Component {
     submitNewLocationForm = () => {
 
 
-        if (this.state.name || this.state.description === "") {
+        if (this.state.name === "") {
             this.setState({
                 formInvalid: true
             })
@@ -218,7 +218,7 @@ class AddLocationModal extends Component {
             this.setState({
                     formInvalid: false
                 }
-            )
+            );
 
 
             {
