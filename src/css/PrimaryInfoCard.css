@@ -106,7 +106,7 @@
 
 @media (max-width: 450px){
     .markerSelected {
-    margin-top: -13rem !important;
+    margin-top: -6rem !important;
     transition-duration: .2s;
     opacity: 1 !important;
 }

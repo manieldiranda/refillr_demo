@@ -1,13 +1,13 @@
-import React, {Component} from "react";
-import PropTypes from "prop-types";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import {Map, Marker} from "google-maps-react";
-import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
-import "../css/AddLocationModal.css";
-import ImageUploader from "./ImageUploader";
-import axios from "axios";
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import {Map, Marker} from 'google-maps-react';
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import '../css/AddLocationModal.css';
+import ImageUploader from './ImageUploader';
+import axios from 'axios';
 import img from '../images/pin.png';
 import Alert from 'react-bootstrap/Alert'
 
@@ -16,85 +16,85 @@ const BASE_API_URL = process.env.REACT_APP_BASE_API_URL;
 
 
 const mapStyles = [
-    {marginTop: "50px"},
-    {position: "fixed"},
-    {elementType: "geometry", stylers: [{color: "#242f3e"}]},
-    {elementType: "labels.text.stroke", stylers: [{color: "#242f3e"}]},
-    {elementType: "labels.text.fill", stylers: [{color: "#746855"}]},
+    {marginTop: '50px'},
+    {position: 'fixed'},
+    {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+    {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+    {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
     {
-        featureType: "administrative.locality",
-        elementType: "labels.text.fill",
-        stylers: [{color: "#d59563"}]
+        featureType: 'administrative.locality',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#d59563'}]
     },
     {
-        featureType: "poi",
-        elementType: "labels.text.fill",
-        stylers: [{color: "#d59563"}]
+        featureType: 'poi',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#d59563'}]
     },
     {
-        featureType: "poi.park",
-        elementType: "geometry",
-        stylers: [{color: "#263c3f"}]
+        featureType: 'poi.park',
+        elementType: 'geometry',
+        stylers: [{color: '#263c3f'}]
     },
     {
-        featureType: "poi.park",
-        elementType: "labels.text.fill",
-        stylers: [{color: "#6b9a76"}]
+        featureType: 'poi.park',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#6b9a76'}]
     },
     {
-        featureType: "road",
-        elementType: "geometry",
-        stylers: [{color: "#38414e"}]
+        featureType: 'road',
+        elementType: 'geometry',
+        stylers: [{color: '#38414e'}]
     },
     {
-        featureType: "road",
-        elementType: "geometry.stroke",
-        stylers: [{color: "#212a37"}]
+        featureType: 'road',
+        elementType: 'geometry.stroke',
+        stylers: [{color: '#212a37'}]
     },
     {
-        featureType: "road",
-        elementType: "labels.text.fill",
-        stylers: [{color: "#9ca5b3"}]
+        featureType: 'road',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#9ca5b3'}]
     },
     {
-        featureType: "road.highway",
-        elementType: "geometry",
-        stylers: [{color: "#746855"}]
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [{color: '#746855'}]
     },
     {
-        featureType: "road.highway",
-        elementType: "geometry.stroke",
-        stylers: [{color: "#1f2835"}]
+        featureType: 'road.highway',
+        elementType: 'geometry.stroke',
+        stylers: [{color: '#1f2835'}]
     },
     {
-        featureType: "road.highway",
-        elementType: "labels.text.fill",
-        stylers: [{color: "#f3d19c"}]
+        featureType: 'road.highway',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#f3d19c'}]
     },
     {
-        featureType: "transit",
-        elementType: "geometry",
-        stylers: [{color: "#2f3948"}]
+        featureType: 'transit',
+        elementType: 'geometry',
+        stylers: [{color: '#2f3948'}]
     },
     {
-        featureType: "transit.station",
-        elementType: "labels.text.fill",
-        stylers: [{color: "#d59563"}]
+        featureType: 'transit.station',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#d59563'}]
     },
     {
-        featureType: "water",
-        elementType: "geometry",
-        stylers: [{color: "#17263c"}]
+        featureType: 'water',
+        elementType: 'geometry',
+        stylers: [{color: '#17263c'}]
     },
     {
-        featureType: "water",
-        elementType: "labels.text.fill",
-        stylers: [{color: "#515c6d"}]
+        featureType: 'water',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#515c6d'}]
     },
     {
-        featureType: "water",
-        elementType: "labels.text.stroke",
-        stylers: [{color: "#17263c"}]
+        featureType: 'water',
+        elementType: 'labels.text.stroke',
+        stylers: [{color: '#17263c'}]
     }
 ];
 
@@ -114,8 +114,8 @@ class AddLocationModal extends Component {
                 lng: -121.43841
             },
             formInvalid: false,
-            name: "",
-            description: ""
+            name: '',
+            description: ''
         };
     }
 
@@ -132,7 +132,7 @@ class AddLocationModal extends Component {
 
     infoImage = () => {
         const {image} = this.state;
-        return image ? `${image.path} - ${Math.round(image.size / 1000)}kb` : "";
+        return image ? `${image.path} - ${Math.round(image.size / 1000)}kb` : '';
     };
 
     selectImage = images => {
@@ -209,7 +209,7 @@ class AddLocationModal extends Component {
     submitNewLocationForm = () => {
 
 
-        if (this.state.name === "") {
+        if (this.state.name === '') {
             this.setState({
                 formInvalid: true
             })
@@ -252,8 +252,8 @@ class AddLocationModal extends Component {
                 this.cancelModal();
                 this.props.refreshLocations();
                 this.setState({
-                    name: "",
-                    description: ""
+                    name: '',
+                    description: ''
                 })
             })
             .catch(err => console.log(err))
@@ -263,18 +263,18 @@ class AddLocationModal extends Component {
     submitFormWithoutImage = () => {
 
         axios.post(`${BASE_API_URL}/locations/`, {
-            "name": this.state.name,
-            "description": this.state.description,
-            "latitude": this.state.newPosition.lat,
-            "longitude": this.state.newPosition.lng,
-            "address": this.state.newLocationAddress
+            'name': this.state.name,
+            'description': this.state.description,
+            'latitude': this.state.newPosition.lat,
+            'longitude': this.state.newPosition.lng,
+            'address': this.state.newLocationAddress
         })
             .then(res => {
                 this.cancelModal();
                 this.props.refreshLocations();
                 this.setState({
-                    name: "",
-                    description: ""
+                    name: '',
+                    description: ''
                 })
 
             })
@@ -288,8 +288,8 @@ class AddLocationModal extends Component {
     render() {
         return (
             <Modal
-                className={"addLocationModal"}
-                style={{position: "fixed"}}
+                className={'addLocationModal'}
+                style={{position: 'fixed'}}
                 centered={true}
                 show={this.props.showAddLocationModal}
                 onHide={this.cancelModal}
@@ -307,7 +307,7 @@ class AddLocationModal extends Component {
                                 <Form.Label>
                                     <b>Location Name </b>
                                 </Form.Label>
-                                <Form.Control onChange={this.formChange} name={"name"}
+                                <Form.Control onChange={this.formChange} name={'name'}
                                               placeholder="Enter Location Name"
                                 />
 
@@ -330,16 +330,16 @@ class AddLocationModal extends Component {
                                 </div>
 
                                 <p>
-                                    {" "}
+                                    {' '}
                                     <b>Optional:</b> Add a image of the water fountain
                                 </p>
 
                                 <Form.Label>
-                                    {" "}
-                                    <b>Location Description</b>{" "}
+                                    {' '}
+                                    <b>Location Description</b>{' '}
                                 </Form.Label>
                                 <Form.Control
-                                    name={"description"}
+                                    name={'description'}
                                     onChange={this.formChange}
                                     rows="2"
                                     placeholder="Enter a short description of where the fountain is located"
@@ -358,17 +358,17 @@ class AddLocationModal extends Component {
 
                         </Modal.Body>
                         < Modal.Footer>
-                            <div className={"addLocationModalButtons"}>
+                            <div className={'addLocationModalButtons'}>
                                 <Button
                                     variant="danger"
-                                    className={"cancelAddLocationButton"}
+                                    className={'cancelAddLocationButton'}
                                     onClick={this.cancelModal}
                                 >
                                     <i className="fa fa-times"/>
                                 </Button>
                                 <Button
                                     variant="success"
-                                    className={"submitAddLocationButton"}
+                                    className={'submitAddLocationButton'}
                                     onClick={this.submitNewLocationForm}
                                 >
                                     <i className="fa fa-check"/>
@@ -381,9 +381,9 @@ class AddLocationModal extends Component {
                     <div>
                         <Modal.Body>
 
-                            <Card className={"addLocationMapContainer"}>
+                            <Card className={'addLocationMapContainer'}>
                                 <Map
-                                    className={"mapContainer"}
+                                    className={'mapContainer'}
                                     mapTypeControl={false}
                                     zoomControl={false}
                                     streetViewControl={false}
@@ -391,13 +391,13 @@ class AddLocationModal extends Component {
                                     zoom={18}
                                     styles={mapStyles}
                                     initialCenter={this.props.currentLocation}
-                                    gestureHandling={"greedy"}
+                                    gestureHandling={'greedy'}
                                 >
                                     <Marker
                                         position={this.props.currentLocation}
                                         draggable={true}
                                         onDragend={this.newLocationMarkerDragEnd}
-                                        name={"mapMarker"}
+                                        name={'mapMarker'}
                                         icon={icon}
 
                                     />
@@ -407,17 +407,17 @@ class AddLocationModal extends Component {
                             </Card>
                         </Modal.Body>
                         <Modal.Footer>
-                            <div className={"addLocationModalButtons"}>
+                            <div className={'addLocationModalButtons'}>
                                 <Button
                                     variant="danger"
-                                    className={"cancelAddLocationButton"}
+                                    className={'cancelAddLocationButton'}
                                     onClick={this.cancelModal}
                                 >
                                     <i className="fa fa-times"/>
                                 </Button>
                                 <Button
                                     variant="success"
-                                    className={"submitAddLocationButton"}
+                                    className={'submitAddLocationButton'}
                                     onClick={this.selectNewLocationMarker}
                                 >
                                     <i className="fa fa-check"/>
